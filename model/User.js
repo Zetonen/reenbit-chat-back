@@ -11,13 +11,14 @@ const userSchema = new Schema(
       required: [true, "The email is required!"],
       unique: true,
     },
-    googleId: {
+    token: {
       type: String,
-      required: [true, "The google id is required!"],
+      required: [true, "The token is required!"],
     },
-    // token: {
-    //   type: String,
-    // },
+    userName: {
+      type: String,
+      required: [true, "The userName is required!"],
+    }
   },
   { versionKey: false, timestamps: true }
 );
