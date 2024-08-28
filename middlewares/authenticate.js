@@ -14,6 +14,7 @@ const authenticate = async (req, res, next) => {
 
   try {
     const user = await User.findOne({ token });
+
     if (!user) {
       throw HttpError(401, "User not found");
     }

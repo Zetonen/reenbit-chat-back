@@ -17,19 +17,15 @@ const addMessage = async (req, res) => {
   if (!responseMessage) {
     throw HttpError(404, `Chat with id = ${chatId} is not found`);
   }
-  // console.log(newMessage);
-  // const responseMessage = await Chat.findOneAndUpdate(
-  //   { _id: chatId, owner },
-  //   { $push: { newMessage } },
-  //   { new: true }
-  // );
+
+  const responseLength = responseMessage.message.length;
   console.log({
-    addedMessage: responseMessage.message[0],
-    responseMessage: responseMessage.message[1],
+    addedMessage: responseMessage.message[responseLength - 2],
+    responseMessage: responseMessage.message[responseLength - 1],
   });
   res.json({
-    addedMessage: responseMessage.message[0],
-    responseMessage: responseMessage.message[1],
+    addedMessage: responseMessage.message[responseLength - 2],
+    responseMessage: responseMessage.message[responseLength - 1],
   });
   // res.json({ addedMessage, responseMessage });
 };
